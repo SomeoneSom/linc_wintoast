@@ -1,0 +1,14 @@
+{
+    "name": "linc_wintoast",
+    "url": "https://github.com/SomeoneSom/linc_wintoast",
+    "license": "MIT",
+    "tags": ["cpp", "extern", "windows"],
+    "description": "Externs around WinToast.",
+    "version": "0.0.1",
+    "classPath": "wintoast/",
+    "releasenote": "Initial release.",
+    "contributors": ["atpx8"],
+    "dependencies": {
+        "hxcpp": ""
+    }
+}
