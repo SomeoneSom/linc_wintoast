@@ -1,8 +1,6 @@
-import wintoast.WinToastTemplate.WinToastTemplateType;
 import wintoast.WinToast;
-import wintoast.WinToastHandler.WinToastHandler;
-import wintoast.WinToastHandler.WinToastDismissalReason;
-import wintoast.WinToastTemplate.WinToastTemplate;
+import wintoast.WinToastHandler;
+import wintoast.WinToastTemplate;
 
 class TestHandler extends WinToastHandler {
 	public function activated() {
