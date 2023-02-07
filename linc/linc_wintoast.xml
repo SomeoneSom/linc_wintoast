@@ -1,0 +1,14 @@
+<xml>
+    <files id='haxe'>
+        <compilerflag value='-I${LINC_WINTOAST_PATH}linc/'/>
+        <compilerflag value='-I${LINC_WINTOAST_PATH}lib/'/>
+        <file name='${LINC_WINTOAST_PATH}linc/linc_wintoast.cpp'/>
+    </files>
+
+    <target id="haxe">
+        <section if="windows">
+			<lib name='${LINC_WINTOAST_PATH}lib/wintoastlib64.lib' if='HXCPP_M64' />
+			<lib name='${LINC_WINTOAST_PATH}lib/wintoastlib32.lib' if='HXCPP_M32' />
+		</section>
+    </target>
+</xml>

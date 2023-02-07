@@ -1,0 +1,4 @@
+test/cpp/
+test/cpp-debug/
+tmp/
+.vscode/

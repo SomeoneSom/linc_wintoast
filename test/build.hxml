@@ -1,0 +1,9 @@
+-main Test.hx
+-cpp cpp/
+-cp ../
+
+-D windows
+
+-cmd cd cpp
+-cmd Test.exe
+-cmd cd ..
