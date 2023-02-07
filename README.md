@@ -4,7 +4,7 @@ hxcpp externs for WinToast.
 **NOTE: This haxelib is not finished and has missing features and bugs!**
 
 Example code:
-```hx
+```haxe
 import wintoast.WinToastTemplate.AudioOption;
 import wintoast.WinToastTemplate.AudioSystemFile;
 import wintoast.WinToastTemplate.WinToastTemplateType;

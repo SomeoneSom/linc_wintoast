@@ -4,9 +4,9 @@
     "license": "MIT",
     "tags": ["cpp", "extern", "windows"],
     "description": "Externs around WinToast.",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "classPath": "wintoast/",
-    "releasenote": "Initial release.",
+    "releasenote": "Add correct syntax highlighting to README.md",
     "contributors": ["atpx8"],
     "dependencies": {
         "hxcpp": ""
