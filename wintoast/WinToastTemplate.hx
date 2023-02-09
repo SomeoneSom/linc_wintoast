@@ -159,6 +159,7 @@ private extern abstract TextFieldsImpl(TextFieldsImplBase) {
     }
 }
 
+//TODO: organize this class
 @:include('linc_wintoast.h')
 @:native('WinToastLib::WinToastTemplate')
 @:structAccess
@@ -167,26 +168,21 @@ extern class WinToastTemplate {
     var type(get, never):WinToastTemplateType;
     var audioOption(get, set):AudioOption;
     var textFields(get, set):TextFieldsImpl;
+    var imagePath(get, set):StdWString;
+    var cropHint(get, set):CropHint;
+    var heroImagePath(get, set):StdWString;
+    var inlineHeroImage(get, set):Bool;
 
     @:native('WinToastTemplate')
     function new(type:WinToastTemplateType);
     
     //janky hack but the alternative is worse
-    inline function get_textFields():TextFieldsImpl {
+    inline private function get_textFields():TextFieldsImpl {
         return untyped __cpp__('(&{0})', this);
     }
 
     @:native('setFieldsFromArray')
-    private var set_textFields:Array<String> -> TextFieldsImpl;
-
-    /*inline function set_textFields(rhs:TextFieldsImpl):TextFieldsImpl {
-        var rhs:Array<String> = untyped __cpp__('*(::Array<::String> *){0}', rhs.externalData);
-        if (rhs.length != textFields.length) throw "Array lengths between rhs and textFields are different!";
-        for (i in 0...textFields.length) {
-            textFields[i] = rhs[i];
-        }
-        return textFields;
-    }*/
+    private final set_textFields:Array<String> -> TextFieldsImpl;
 
     @:native('type')
     private function get_type():WinToastTemplateType;
@@ -201,6 +197,43 @@ extern class WinToastTemplate {
         return audioOption;
     }
 
-    //TODO: get rid of func after testing
-    function setFirstLine(text:StdWString):Void;
+    @:native('imagePath')
+    private function get_imagePath():StdWString;
+
+    @:native('setOnlyImagePath')
+    private function _set_imagePath(imgPath:StdWString):Void;
+    private inline function set_imagePath(imgPath:StdWString):StdWString {
+        _set_imagePath(imgPath);
+        return imagePath;
+    }
+
+    @:native('cropHint')
+    private function get_cropHint():CropHint;
+
+    @:native('setOnlyCropHint')
+    private function _set_cropHint(crop:CropHint):Void;
+    private inline function set_cropHint(crop:CropHint):CropHint {
+        _set_cropHint(crop);
+        return cropHint;
+    }
+
+    @:native('heroImagePath')
+    private function get_heroImagePath():StdWString;
+
+    @:native('setOnlyHeroImagePath')
+    private function _set_heroImagePath(imgPath:StdWString):Void;
+    private inline function set_heroImagePath(imgPath:StdWString):StdWString {
+        _set_heroImagePath(imgPath);
+        return heroImagePath;
+    }
+
+    @:native('isInlineHeroImage')
+    private function get_inlineHeroImage():Bool;
+
+    @:native('setOnlyInlineHeroImage')
+    private function _set_inlineHeroImage(inlineImage:Bool):Void;
+    private inline function set_inlineHeroImage(inlineImage:Bool):Bool {
+        _set_inlineHeroImage(inlineImage);
+        return inlineHeroImage;
+    }
 }

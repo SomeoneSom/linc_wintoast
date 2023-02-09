@@ -95,6 +95,5 @@ extern final class WinToastPointer {
     }
 }
 
-//TODO: move
 @:native('linc::wintoastlib::handler::HxWinToastHandler *')
 extern private class WinToastHandlerPointer {}

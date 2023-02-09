@@ -129,9 +129,21 @@ namespace WinToastLib {
         void setSecondLine(_In_ const std::wstring& text);
         void setThirdLine(_In_ const std::wstring& text);
         void setTextField(_In_ const std::wstring& txt, _In_ TextField pos);
-        void setAttributionText(_In_ const std::wstring & attributionText);
+        void setAttributionText(_In_ const std::wstring& attributionText);
         void setImagePath(_In_ const std::wstring& imgPath, _In_ CropHint cropHint = CropHint::Square);
+        void setOnlyImagePath(_In_ const std::wstring& imgPath) {
+            _imagePath = imgPath;
+        }
+        void setOnlyCropHint(_In_ CropHint cropHint) {
+            _cropHint = cropHint;
+        }
         void setHeroImagePath(_In_ const std::wstring& imgPath, bool inlineImage);
+        void setOnlyHeroImagePath(_In_ const std::wstring& imgPath) {
+            _heroImagePath = imgPath;
+        }
+        void setOnlyInlineHeroImage(bool inlineImage) {
+            _inlineHeroImage = inlineImage;
+        }
         void setAudioPath(_In_ WinToastTemplate::AudioSystemFile audio);
         void setAudioPath(_In_ const std::wstring& audioPath);
         void setAudioOption(_In_ WinToastTemplate::AudioOption audioOption);
@@ -168,6 +180,9 @@ namespace WinToastLib {
         bool isToastGeneric() const;
         bool isInlineHeroImage() const;
         bool isCropHintCircle() const;
+        CropHint cropHint() const {
+            return _cropHint;
+        }
     private:
         std::vector<std::wstring>           _textFields{};
         std::vector<std::wstring>           _actions{};
