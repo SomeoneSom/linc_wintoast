@@ -4,8 +4,8 @@
     "license": "MIT",
     "tags": ["cpp", "extern", "windows"],
     "description": "Externs around WinToast.",
-    "version": "0.0.4",
-    "releasenote": "Change classPath so the library actually works now.",
+    "version": "0.1.0",
+    "releasenote": "Add image support.",
     "contributors": ["atpx8"],
     "dependencies": {
         "hxcpp": ""
